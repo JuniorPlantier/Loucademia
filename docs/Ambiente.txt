@@ -1,0 +1,59 @@
+/* *** Database ******************************** *********************************************
+   ********************************************* *********************************************
+	 ********************************************* *********************************************
+	 ********************************************* ********************************************* */
+CREATE SCHEMA 'loucademia' DEFAULT CHARACTER SET latin1;
+user: loucademia
+pass: loucadb
+
+localhost = 127.0.0.1
+
+URL de conexão:
+	jdbc:mysql://localhost:3306/loucademia?useLegacyDatetimeCode=false&serverTimezone=America/Sao_Paulo&userSSL=false
+/* *** Integrated Development Enviroment (IDE)** *** Servidor de Aplicação *******************
+   ********************************************* *********************************************
+	 ********************************************* *********************************************
+	 ********************************************* ********************************************* */
+-- Eclipse --
+É uma das ferramentas mais utilizadas no mundo, categorizada como IDE.
+100% gratuita.
+workspace é um diretório que agrupa os projetos.
+Atalho = ctrl+1 para ajudar 
+--
+-- Wildfly -- O que é WildFly? --
+É um servidor de aplicações Java. Onde o usuário irá acessar através do navegador. 
+É 100% gratuito. O Jboss é o WildFly antigo. O Jboss não existe mais. Link oficial: https://wildfly.org/
+
+Integrando o Java e o WildFly com o eclipse.
+Se der erro ao startar:
+	Clicar duas vezes no servidor -> Open launch configuration -> No final do "VM arguments" adicionar: 
+	--add-modules java.se
+
+Desabilitar o corretor ortográfico do Eclipse. Por quê? Porque a correção é feita para o inglês.
+	Windows -> Preferences -> Digitar: spell -> Spelling -> desmarcar a caixinha.
+
+Para tirar o Warming ao implementar a classe serializable.
+	Windows -> Preferences -> Digitar: serialversionuid -> Java -> Compiler -> Errors/Warnings -> Potential programming problems -> Serializable class without serialVersionUID = Ignore
+
+Criando usuário para o painel de administração. Clicar em: Administration Console
+Abrir o prompt como adm -> entrar no diretório /bin de instalação do servidor -> executar o arquivo add-user.bat -> 
+a
+username: plantier
+password: plantier
+yes
+plantier
+[enter]
+yes
+-- DataSource --
+Quem se conecta e detém toda a parte de configuração de como chegar no BD é o servidor e não a aplicação. A aplicação irá utilizar uma DataSource. O que é DataSource???
+"Vou me conectar no servidor de BD no MySQL que usa o usuário/senha para entrar no BD chamado xx". Tudo isso fica configurado no servidor, com um nome determinado. 
+Tudo o que deve ser feito pela aplicação é: use a DataSource XYZ(JNDI). Como está tudo configurado no servidor, o Java irá conseguir conversar automaticamente com o BD. Essa é a lógica da criação da DataSource.
+JNDI (Java Naming and Directory Interface): Nome que a aplicação irá utilizar para se conectar com a DataSource.
+
+A App se comunica com a DS e não com o BD. Na App fica apenas o JNDI.
+
+Driver de conexão é uma API que faz a ponte entre a linguagem de programação e o BD.
+-- JPA --
+Uma entidade JPA, tem que implementar *Serializable. 
+JPQL -> 1=1 é uma lógica utilizada em pesquisas dinâmicas, ele sempre retorna verdadeiro e não impactará no resto.
+*significa salvar o estado atual dos objetos em arquivos em formato binário para o seu computador, sendo assim esse estado poderá ser recuperado posteriormente recriando o objeto em memória assim como ele estava no momento da sua serialização.

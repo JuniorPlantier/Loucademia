@@ -1,0 +1,45 @@
+/* *** Java ************************************ *********************************************
+   ********************************************* *********************************************
+	 ********************************************* *********************************************
+	 ********************************************* ********************************************* */
+WebContent
+É o diretório dentro do projeto onde vão os arquivos web, exemplo: css, imagens, html, js e tudo o que for acessível via navegador.
+
+META-INF e WEB-INF
+ambas não são acessíveis pelo navegador.
+--
+*.faces = qualquer coisa que terminar com .faces será processado pelo JSF. Ou seja, sera montada uma página dinâmica que será entregue ao cliente.
+--
+ JPA
+É uma API de persistencia que permite conversar com o BD "sem usar SQL". Você simplmentes trabalha com objetos.
+Essa API faz todo o mapeamento entre o mundo orientado a objetos e o relacional, baseado em colunas e tabelas.
+
+Tradução: by Target Runtime = Serão executadas pelo Wildfly
+--
+CDI - API responsável pela injeção de dependência.
+É uma API que faz parte do Java EE responsável pelo gerenciamento de dependências, ou seja, ele fornece objetos para ser utilizados.
+--
+	HTML
+<header></header> 
+  - Marcação semântica.
+	- Informações que repetem, menus etc.
+<nav></nav> 
+	- Informação semântica específica para menu.
+--
+- pesquisaDeAluno.xhtml - 
+Problema: 
+O usuário faz uma pesquisa, muda de tela PORÉM ao voltar para na tela de pesquisa o último resultado ainda é retornado.
+
+Resposta:
+Essa tela foi criado com um Bean de sessão, isso significa que o Bean criado continua existindo enquanto o usuário tiver uma sessão ativa. Ou seja, enquanto não fechar o navegador o Bean estará ativo.
+
+É preciso fazer uma limpeza no Bean, e o melhor momento é na hora do click, forçando uma limpeza.
+--
+Enum
+	É um tipo de classe especial do Java, cujo os valores são fixos. 
+	
+Classes Wrappers 
+	Representam o tipo primitivo no mundo do tipos por referência. 	Podem atribuir o valor nulo, um tipo primitivo não aceita o valor nulo.
+	
+equals() e hashCode()	
+	As entidades devem ser identificadas de forma única. E para identificar de forma única é necessário implementar os métodos equals() e hashCode() esses métodos são utilizados internamente pelo Java pra identificar se dois objetos são iguais, não em termos de área de memória, exemplo, o que são dois objetos iguais pro Java? São dois objetos que estão no mesmo endereço de memória. Todavia, e se você tem dois estados em memórias diferentes, porém ambos com o valor SP, são objetos iguais ou não? Sim! Ambos representam São Paulo, porém você deve ensinar isso para o Java.
